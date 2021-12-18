@@ -7,14 +7,14 @@ pipeline {
         stage('install dependencies') {
             steps {
                 sh 'python --version'
-                sh 'pip install --upgrade pip --user'
-                sh 'pip install -r requirements.txt --user --no-cache'
+                sh 'python -m pip install --upgrade pip --user'
+                sh 'python -m pip install -r requirements.txt --user --no-cache'
             }
         }
         stage('test'){
             steps{
-                sh 'pytest --version'
-                sh 'pytest tests'
+                sh 'python -m pytest --version'
+                sh 'python -m pytest tests'
             }
         }
     }
